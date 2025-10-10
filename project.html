@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로젝트 상세 - CodeCanvas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Marked.js for Markdown parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        .markdown-body {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: var(--bg-white);
+        }
+
+        .markdown-body img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 4rem;
+            color: var(--text-light);
+        }
+
+        .error {
+            max-width: 600px;
+            margin: 4rem auto;
+            padding: 2rem;
+            background-color: #fee;
+            border: 1px solid #fcc;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .back-button {
+            max-width: 900px;
+            margin: 2rem auto 0;
+            padding: 0 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <h1><a href="index.html" style="color: inherit; text-decoration: none;">CodeCanvas</a></h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#projects">Projects</a></li>
+                    <li><a href="index.html#tech-stack">Tech Stack</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="back-button">
+            <a href="index.html#projects" class="back-link">← 프로젝트 목록으로 돌아가기</a>
+        </div>
+
+        <div id="loading" class="loading">
+            <p>프로젝트 정보를 불러오는 중...</p>
+        </div>
+
+        <div id="error" class="error" style="display: none;">
+            <h2>오류</h2>
+            <p id="error-message"></p>
+            <a href="index.html" class="btn-primary">홈으로 돌아가기</a>
+        </div>
+
+        <article id="content" class="markdown-body project-detail" style="display: none;">
+            <!-- Markdown content will be rendered here -->
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="company-info">
+                    <h3>코드캔버스</h3>
+                    <p><strong>대표자:</strong> 박찬</p>
+                    <p><strong>사업자번호:</strong> 821-12-02655</p>
+                    <p><strong>이메일:</strong> qkrcks1220@naver.com</p>
+                    <p><strong>주소:</strong> 서울특별시 송파구 백제고분로 17-14</p>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 코드캔버스. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Get project name from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectName = urlParams.get('project');
+
+        // Project file mapping
+        const projectFiles = {
+            'ctm': 'projects/project-ctm.md',
+            'inspeco': 'projects/project-inspeco.md',
+            'satellite': 'projects/project-satellite.md',
+            'toast': 'projects/project-toast.md',
+            'microscope': 'projects/project-microscope.md',
+            'alphafarmtech': 'projects/project-alphafarmtech.md'
+        };
+
+        // Configure marked options
+        marked.setOptions({
+            breaks: true,
+            gfm: true,
+            headerIds: true,
+            mangle: false
+        });
+
+        // Load and render markdown
+        async function loadProject() {
+            const loading = document.getElementById('loading');
+            const error = document.getElementById('error');
+            const content = document.getElementById('content');
+
+            if (!projectName || !projectFiles[projectName]) {
+                loading.style.display = 'none';
+                error.style.display = 'block';
+                document.getElementById('error-message').textContent =
+                    '프로젝트를 찾을 수 없습니다.';
+                return;
+            }
+
+            try {
+                const response = await fetch(projectFiles[projectName]);
+
+                if (!response.ok) {
+                    throw new Error('파일을 불러올 수 없습니다.');
+                }
+
+                const markdown = await response.text();
+                const html = marked.parse(markdown);
+
+                loading.style.display = 'none';
+                content.innerHTML = html;
+                content.style.display = 'block';
+
+                // Update page title
+                const h1 = content.querySelector('h1');
+                if (h1) {
+                    document.title = h1.textContent + ' - CodeCanvas';
+                }
+
+            } catch (err) {
+                loading.style.display = 'none';
+                error.style.display = 'block';
+                document.getElementById('error-message').textContent =
+                    '프로젝트 정보를 불러오는 중 오류가 발생했습니다: ' + err.message;
+            }
+        }
+
+        // Load project on page load
+        loadProject();
+    </script>
+</body>
+</html>
