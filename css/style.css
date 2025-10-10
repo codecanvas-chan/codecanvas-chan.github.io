@@ -367,15 +367,22 @@ footer {
 
 .company-info h3 {
     font-size: 1.1rem;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
     color: white;
     font-weight: 600;
 }
 
 .company-info p {
-    margin: 0.3rem 0;
+    display: inline;
+    margin: 0;
     color: rgba(255, 255, 255, 0.85);
     font-size: 0.85rem;
+}
+
+.company-info p:not(:last-child)::after {
+    content: " | ";
+    margin: 0 0.5rem;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .footer-bottom {
