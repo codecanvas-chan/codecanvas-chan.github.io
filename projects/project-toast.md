@@ -7,6 +7,8 @@
 
 차량용 인포테인먼트 시스템 GUI 개발
 
+![차량용 인포테인먼트 시스템 GUI](projects/project-toast_img_01.png)
+
 ---
 
 ## 기술 스택
