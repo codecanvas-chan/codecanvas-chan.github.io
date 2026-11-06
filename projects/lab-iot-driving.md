@@ -19,7 +19,7 @@
 - **OBD 수집**: ELM327 Bluetooth 어댑터와 python-OBD로 RPM, 속도, 스로틀, 흡기 압력·온도, 고장 코드(DTC)를 비동기로 구독하고, 이 값들로 연비를 계산합니다.
 - **대시보드**: PyQt5(Qt Designer)로 만든 전체 화면 UI에 연비 게이지, 날씨, 실내 공기질, 경고를 표시합니다.
 - **연비 코칭**: 자이로 노드가 계산한 도로 경사와 차량 상태를 바탕으로, 관성 주행이 가능한 구간을 음성으로 안내합니다. 급제동·급가속·고RPM 횟수로 주행 점수를 계산해 음성으로 알려 주고, 주행이 끝나면 연비·평균 속도·거리와 함께 서버에 기록합니다.
-- **음성 비서**: 호출어를 감지하면 음성 인식으로 명령을 받고, 음성 합성으로 응답해 운전 중에도 손을 쓰지 않고 조작할 수 있습니다.
+- **음성 비서**: Wake word를 감지하면 STT로 명령을 받고, TTS로 응답해 운전 중에도 손을 쓰지 않고 조작할 수 있습니다.
 
 ### 센서 노드
 - ESP8266(Arduino) 노드 3개: **MPU6050 자이로**(경사), **GPS**(위치·주차 위치), **MQ135·DHT11**(CO₂·온습도)
@@ -51,4 +51,4 @@
 | 센서 노드 | ESP8266 (Arduino), MPU6050, GPS (TinyGPS++), MQ135, DHT11, MQTT (PubSubClient) |
 | 웹 · 서버 | Python Flask (REST API), MySQL, flask-mysqldb, FCM 푸시 (pyfcm), Ubuntu 클라우드 서버 |
 | 앱 | Android (Java), Firebase Auth · Cloud Messaging, Google Maps SDK, MPAndroidChart, Glide |
-| 음성 · 외부 API | 호출어 감지, 클라우드 음성 인식(STT) · 음성 합성(TTS), 날씨 API |
+| 음성 · 외부 API | Wake word 감지, 클라우드 STT · TTS, 날씨 API |

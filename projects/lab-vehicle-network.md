@@ -13,7 +13,7 @@
 ## ESP32 C-CAN 스니퍼 (2024)
 
 - ESP32-C3와 MCP2515 CAN 컨트롤러로 차량 C-CAN 프레임을 수집해 **JSON으로 바꿔 MQTT로 발행**합니다.
-- Wi-Fi는 캡티브 포털로 설정하고 EEPROM에 저장하며, PC에서는 Python 구독기가 받은 데이터를 로깅합니다.
+- Wi-Fi는 캡티브 포털로 설정하고 EEPROM에 저장하며, PC에서는 Python MQTT subscriber가 받은 데이터를 로깅합니다.
 
 ## 기술 스택
 

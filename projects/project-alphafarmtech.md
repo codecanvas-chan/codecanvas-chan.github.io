@@ -4,10 +4,8 @@
 
 약국에서 물약(시럽)을 조제할 때는 처방량만큼 계량해 따르는 반복 작업이 많습니다. 알파팜텍의 약국용 시럽 자동 조제기 **팜시럽 ULTRA**가 이 과정을 자동화하는 제품이고, 저는 이 제품의 **펌웨어와 PC 제어 소프트웨어**를 개발했습니다. 2023년 솔레노이드 밸브 시제품에서 시작해 산업용 컨트롤러 기반 양산 제품으로 발전시켰고, **v1.0부터 v1.4.1까지 13회 릴리스**하며 2년 넘게 기능을 확장했습니다. 현재 5구·3구 모델이 실제 약국 조제실에 설치되어 쓰이고 있습니다.
 
-<figure class="fig medium"><div class="frame"><img src="assets/img/alphafarmtech/ultra-product.webp" alt="팜시럽 ULTRA 5구 제품 정면 사진: 상단 디스플레이 5개, 토출구별 버튼, 하단 시럽 원액 용기 5개"></div><figcaption><b>PRODUCT</b><span>팜시럽 ULTRA 5구. 상단 디스플레이에 토출구별 환자명과 용량을 한글로 표시하고, 버튼 3개(추출·수동·비상정지)와 스테핑 펌프로 설정량을 정량 토출합니다. (이미지: 알파팜텍)</span></figcaption></figure>
-
 <div class="highlights">
-<div><h4>5채널 독립 정량 토출</h4><p>토출구마다 독립 상태 머신을 두고, TB6600 드라이버와 스테핑 펌프로 78 pulse/mL 정량 제어와 가중치(용량 배율) 보정을 합니다.</p></div>
+<div><h4>5채널 독립 정량 토출</h4><p>토출구마다 독립 State machine을 두고, TB6600 드라이버와 스테핑 펌프로 78 pulse/mL 정량 제어와 가중치(용량 배율) 보정을 합니다.</p></div>
 <div><h4>RS485 Modbus RTU</h4><p>토출구당 28개, 총 140개 홀딩 레지스터에 명령, 상태, 용량, 환자명, 약물명(UTF-8)을 매핑했습니다. 약국 PC나 상위 시스템과 표준 방식으로 연동됩니다.</p></div>
 <div><h4>한글 OLED 렌더링 엔진</h4><p>UTF-8 문자열을 초성·중성·종성으로 분해해 조합형 비트맵 폰트(360 글리프)로 그리는 엔진을 직접 구현했습니다. 5개 OLED는 I²C 멀티플렉서로 묶었습니다.</p></div>
 <div><h4>약국 현장 안전 설계</h4><p>토출구별 비상정지, 누르는 동안만 동작하는 수동 추출, 8초 워치독, 미사용 시 모터 Enable 차단을 넣었습니다.</p></div>
@@ -47,13 +45,13 @@
 
 ## 토출 제어 로직
 
-<figure class="fig"><div class="frame pad"><img src="assets/diagrams/alphafarm-state.svg" alt="토출구 상태 머신"></div><figcaption><b>FIG 2</b><span>토출구 상태 머신. 약물을 설정하면 대기 상태로 바뀌고 버튼 LED가 점멸합니다. 약사가 컵을 놓고 버튼을 누르면 추출을 시작하고, 목표 펄스에 도달하면 완료됩니다. 비상정지는 어느 상태에서든 즉시 정지시킵니다.</span></figcaption></figure>
+<figure class="fig"><div class="frame pad"><img src="assets/diagrams/alphafarm-state.svg" alt="토출구 State machine"></div><figcaption><b>FIG 2</b><span>토출구 State machine. 약물을 설정하면 대기 상태로 바뀌고 버튼 LED가 점멸합니다. 약사가 컵을 놓고 버튼을 누르면 추출을 시작하고, 목표 펄스에 도달하면 완료됩니다. 비상정지는 어느 상태에서든 즉시 정지시킵니다.</span></figcaption></figure>
 
 - 5개 채널의 스텝 펄스를 약 1 kHz 공통 타이머로 동시에 생성해, 여러 처방을 **병렬로 토출**할 수 있습니다.
 - 목표 펄스 수는 `설정 용량 × 가중치 × 78 pulse/mL`로 계산합니다. 예를 들어 30 mL × 1.1이면 33 mL를 토출합니다.
 - 청소 모드(CMD=2)는 배관 세척용으로 500 mL를 연속 토출하고, OLED에 `CLEAN`을 표시합니다.
 
-### Modbus 레지스터 구성 (토출구 n, 기준 주소 = 28·n)
+### Modbus 레지스터 맵 (토출구 n, Base 주소 = 28·n)
 
 | Offset | R/W | 내용 |
 |------|------|------|

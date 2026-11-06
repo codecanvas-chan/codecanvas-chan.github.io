@@ -44,12 +44,20 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 6 6 6-6 6"/></svg>
                     <span>${esc(p.domain)}</span>
                 </nav>
-                <div class="badge-row">
-                    <span class="badge">${esc(p.domain)}</span>
-                    ${(p.badges || []).map(b => `<span class="badge alt">${esc(b)}</span>`).join('')}
+                <div class="p-hero-grid">
+                    <div>
+                        <div class="badge-row">
+                            <span class="badge">${esc(p.domain)}</span>
+                            ${(p.badges || []).map(b => `<span class="badge alt">${esc(b)}</span>`).join('')}
+                        </div>
+                        <h1>${esc(p.title)}</h1>
+                        <p class="summary">${esc(p.summary)}</p>
+                    </div>
+                    ${p.cover ? `<figure class="p-hero-media">
+                        <div class="shot${p.coverFit === 'contain' ? ' contain' : ''}"><img src="${p.cover}" alt="${esc(p.coverAlt || p.title)}"></div>
+                        ${p.coverCaption ? `<figcaption>${esc(p.coverCaption)}</figcaption>` : ''}
+                    </figure>` : ''}
                 </div>
-                <h1>${esc(p.title)}</h1>
-                <p class="summary">${esc(p.summary)}</p>
                 <dl class="p-meta">
                     ${meta.map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('')}
                 </dl>

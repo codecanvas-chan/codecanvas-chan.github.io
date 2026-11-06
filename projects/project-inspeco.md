@@ -9,7 +9,7 @@
 <figure class="fig narrow"><div class="frame dark"><video src="assets/img/inspeco/mix-overlay-live.mp4" poster="assets/img/inspeco/mix-overlay-live-poster.webp" autoplay muted loop playsinline aria-label="복합진단 모드 실시간 화면"></video></div><figcaption><b>LIVE</b><span>640×512 모듈 복합진단 모드의 실제 동작 화면입니다. 실화상 위에 열화상을 겹쳐 실시간으로 그리고, 최고·최저 온도 지점을 따라가며 표시합니다. 장비 화면을 휴대폰으로 촬영했습니다.</span></figcaption></figure>
 
 <div class="highlights">
-<div><h4>렌더링 병목 제거 — 2 → 23 FPS</h4><p>픽셀마다 그리기 API를 부르던 구조(프레임당 32.7만 회)를 ARGB 버퍼에 한 번에 채운 뒤 한 번 업로드하는 구조로 바꿨습니다.</p></div>
+<div><h4>렌더링 병목 제거 — 2 → 23 FPS</h4><p>픽셀마다 draw API를 호출하던 구조(프레임당 32.7만 회)를 ARGB 버퍼에 한 번에 채운 뒤 한 번 업로드하는 구조로 바꿨습니다.</p></div>
 <div><h4>신규 640×512 모듈 포팅</h4><p>256×192 하드코딩 38곳을 공통 해상도 설정으로 리팩터링했습니다. USB 제품명으로 모듈을 자동 판별해 두 카메라를 단일 APK로 지원합니다.</p></div>
 <div><h4>측정·분석 기능 확장</h4><p>최고·최저 온도 실시간 추적, 측정점 기준 Span 모드, 256단계 plasma 컬러맵을 구현했습니다.</p></div>
 <div><h4>보고서·현지화</h4><p>열화상·복합·초음파 3종 보고서에 Excel(XLSX) 내보내기를 추가하고 중국어·영어 현지화를 완성했습니다.</p></div>

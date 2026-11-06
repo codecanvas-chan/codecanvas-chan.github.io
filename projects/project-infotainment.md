@@ -6,8 +6,6 @@
 
 > 고객사와의 비밀유지계약에 따라 고객사명은 공개하지 않습니다.
 
-<figure class="fig"><div class="frame dark"><img src="assets/img/infotainment/home-radio.webp" alt="홈 메인 화면: 상태바, 왼쪽 Phone Projection 위젯, 오른쪽 FM 라디오 위젯, 하단 메뉴 바"></div><figcaption><b>HOME</b><span>홈 메인. 상단 상태바, 좌·우 위젯(Phone Projection · FM 라디오), 하단 메뉴 바(All Menu · Phone · Media · Setup)로 구성됩니다. 이미지는 구현 기준이 된 UX 디자인 시안(2048×1200)입니다.</span></figcaption></figure>
-
 <div class="highlights">
 <div><h4>58개 화면 · 11일 구현</h4><p>Home 20, Radio 12, Media 26개 화면의 레이아웃, 화면 전환, 팝업을 사양 그대로 구현했습니다.</p></div>
 <div><h4>시안 기반 인터랙션 구현</h4><p>화면 간 클릭 이동, 옵션 메뉴, 확인·안내 팝업, OSD, 라이브러리 리스트 탐색을 UX 사양에 맞춰 구현했습니다.</p></div>

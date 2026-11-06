@@ -44,26 +44,14 @@
         });
     }
 
-    // ---- R&D ----
+    // ---- R&D (all cards the same size: R&D first, then Lab) ----
     const rnd = data.projects.filter(p => p.type === 'rnd');
+    const ordered = rnd.filter(p => !p.key.startsWith('lab-')).concat(rnd.filter(p => p.key.startsWith('lab-')));
     const featureEl = document.getElementById('rnd-feature');
     const rndGrid = document.getElementById('rnd-grid');
-    const feat = rnd.find(p => p.featured) || rnd[0];
-
-    if (featureEl && feat) {
-        featureEl.innerHTML = `
-            <div class="media"><img src="${feat.cover}" alt="${esc(feat.coverAlt || feat.title)}" loading="lazy"></div>
-            <div class="content">
-                <span class="eyebrow">Featured R&amp;D · ${esc(feat.periodShort || feat.period)}</span>
-                <h3>${esc(feat.title)}</h3>
-                <p>${esc(feat.card || feat.summary)}</p>
-                <div class="rnd-metrics">${(feat.kpis || []).slice(0, 3).map(k => `<div><b>${k.v}</b><span>${esc(k.l)}</span></div>`).join('')}</div>
-                <div class="chips">${(feat.tags || []).slice(0, 7).map(t => `<span class="chip">${esc(t)}</span>`).join('')}</div>
-                <a class="btn btn-primary" href="project.html?project=${feat.key}">기술 상세 보기 ${arrow}</a>
-            </div>`;
-    }
+    if (featureEl) featureEl.remove();
     if (rndGrid) {
-        rndGrid.innerHTML = rnd.filter(p => p !== feat).map(p => `
+        rndGrid.innerHTML = ordered.map(p => `
             <a class="rnd-card reveal" href="project.html?project=${p.key}">
                 <div class="thumb"><img src="${p.cover}" alt="${esc(p.coverAlt || p.title)}" loading="lazy"></div>
                 <div class="body">
@@ -73,6 +61,27 @@
                     <div class="chips">${(p.tags || []).slice(0, 4).map(t => `<span class="chip">${esc(t)}</span>`).join('')}</div>
                 </div>
             </a>`).join('');
+    }
+
+    // ---- Hero stat count-up ----
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce) {
+        document.querySelectorAll('.hero-stat .num').forEach(el => {
+            const node = [...el.childNodes].find(n => n.nodeType === 3 && /\d/.test(n.textContent));
+            if (!node) return;
+            const target = parseInt(node.textContent.replace(/[^\d]/g, ''), 10);
+            if (!target) return;
+            const t0 = performance.now(), dur = 1300;
+            const tick = now => {
+                const k = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+                node.textContent = Math.round(target * e).toLocaleString('ko-KR');
+                if (k < 1) requestAnimationFrame(tick);
+            };
+            const final = target.toLocaleString('ko-KR');
+            node.textContent = '0';
+            requestAnimationFrame(tick);
+            setTimeout(() => { node.textContent = final; }, dur + 400);
+        });
     }
 
     window.CCReveal && window.CCReveal();
