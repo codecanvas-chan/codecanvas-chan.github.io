@@ -118,7 +118,7 @@ window.CC = {
             summary: 'Home·Radio·Media 영역 58개 화면을 디자인 시안대로 구현하고 개발 환경·크로스 컴파일 가이드까지 납품한 차량용 인포테인먼트 HMI 프로젝트입니다.',
             card: 'Home·Radio·Media 58개 화면을 11일 만에 구현하고, M2 Mac 개발 환경과 크로스 컴파일 가이드까지 납품.',
             tags: ['Qt', 'QML', 'C++', 'Cross-compile'],
-            cover: 'assets/covers/cover-infotainment.svg', coverAlt: '차량 인포테인먼트 화면을 추상화한 일러스트',
+            cover: 'assets/img/infotainment/home-radio.webp', coverAlt: '인포테인먼트 홈 화면 디자인',
             kpis: [
                 { v: '58', l: '구현 화면 수' },
                 { v: '11일', l: '개발 기간' },
@@ -188,7 +188,7 @@ window.CC = {
             summary: 'ADAS 보드의 카메라 스트림, 인식 결과, CAN 신호를 프레임 단위로 함께 녹화하고, 브라우저에서 실시간 확인과 재생·검색·3D 분석을 할 수 있는 실차 검증 도구입니다.',
             card: '카메라 영상·인식 결과·CAN 신호를 프레임 단위로 녹화하고, 3D 버드아이뷰와 주행 타임라인으로 재생·검색하는 웹 기반 검증 도구.',
             tags: ['FastAPI', 'three.js', 'H.264 SEI', 'WebSocket', 'PyAV'],
-            cover: 'assets/img/recorder/playback.webp', coverAlt: '레코더 재생 화면',
+            cover: 'assets/covers/cover-recorder.svg', coverAlt: '영상·3D 버드아이뷰·타임라인으로 구성된 레코더 화면 일러스트',
             kpis: [
                 { v: '1 파일', l: '영상 · CAN · 결과 프레임 동기' },
                 { v: '3D', l: 'three.js 버드아이뷰' },
@@ -249,13 +249,18 @@ window.CC = {
         {
             key: 'lab-iot-driving', type: 'rnd', md: 'projects/lab-iot-driving.md',
             title: 'IoT 기반 OBD-II 연비 운전 보조 시스템',
-            cardTitle: 'IoT 연비 운전 보조 시스템 (졸업작품)',
-            domain: 'Origin · 졸업작품', client: '4인 팀 프로젝트',
-            period: '2017.12 – 2019.02', periodShort: '2018', role: '팀원 (커밋 111/144)', platform: 'Raspberry Pi 3 · ESP8266',
-            summary: 'OBD-II, 자이로, GPS 데이터를 결합해 연비 운전을 코칭하는 IoT 시스템으로, 한이음 ICT 공모전 입선작입니다.',
-            card: 'OBD-II·자이로·GPS 기반 연비 코칭 IoT 시스템. 한이음 ICT 공모전 입선작.',
-            tags: ['Raspberry Pi', 'ESP8266', 'MQTT', 'Android'],
-            cover: 'assets/img/lab/iot-prototype.webp', coverAlt: '연비 대시보드 시제품',
+            cardTitle: 'IoT OBD-II 연비 운전 보조 시스템',
+            domain: 'Lab · Connected Car', client: 'Lab',
+            period: '2017.12 – 2019.02', periodShort: '2018', role: '시스템 설계 · 개발', platform: 'Raspberry Pi 3 · ESP8266 · Android',
+            summary: 'OBD-II와 센서 데이터로 실시간 연비 운전을 코칭하고, 주행 기록과 고장 정보를 웹 서버와 Android 앱으로 확인하는 커넥티드카 IoT 시스템입니다.',
+            card: '차량 단말·센서 노드·Flask 서버·Android 앱으로 구성한 커넥티드카 시스템. 연비 코칭, 주행 점수, 고장 코드 푸시 알림.',
+            tags: ['Raspberry Pi', 'ESP8266', 'Flask', 'MySQL', 'Android'],
+            cover: 'assets/covers/cover-iot-driving.svg', coverAlt: '연비 게이지, 서버, 스마트폰 앱을 표현한 일러스트',
+            kpis: [
+                { v: '4계층', l: '차량 단말 · 센서 · 서버 · 앱' },
+                { v: '14', l: 'Flask REST API' },
+                { v: '3', l: 'ESP8266 센서 노드' },
+            ],
         },
     ],
 };

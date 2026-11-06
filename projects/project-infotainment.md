@@ -4,13 +4,26 @@
 
 자동차 전장 고객사의 차량용 인포테인먼트(IVI) 시스템 화면을 **Qt/QML**로 구현했습니다. 고객사가 준 UX 사양과 디자인 시안을 바탕으로 Home, Radio, Media 세 영역 **58개 화면**의 화면 전환, 팝업, OSD, 리스트 탐색을 **11일 안에** 구현하고, Apple Silicon 개발 환경과 임베디드 리눅스 크로스 컴파일 가이드까지 함께 납품했습니다.
 
-> 고객사와의 비밀유지계약에 따라 고객사명과 실제 화면은 공개하지 않습니다. 아래 구성도는 납품 범위를 바탕으로 다시 그린 것입니다.
+> 고객사와의 비밀유지계약에 따라 고객사명은 공개하지 않습니다.
+
+<figure class="fig"><div class="frame dark"><img src="assets/img/infotainment/home-radio.webp" alt="홈 메인 화면: 상태바, 왼쪽 Phone Projection 위젯, 오른쪽 FM 라디오 위젯, 하단 메뉴 바"></div><figcaption><b>HOME</b><span>홈 메인. 상단 상태바, 좌·우 위젯(Phone Projection · FM 라디오), 하단 메뉴 바(All Menu · Phone · Media · Setup)로 구성됩니다. 이미지는 구현 기준이 된 UX 디자인 시안(2048×1200)입니다.</span></figcaption></figure>
 
 <div class="highlights">
 <div><h4>58개 화면 · 11일 구현</h4><p>Home 20, Radio 12, Media 26개 화면의 레이아웃, 화면 전환, 팝업을 사양 그대로 구현했습니다.</p></div>
 <div><h4>시안 기반 인터랙션 구현</h4><p>화면 간 클릭 이동, 옵션 메뉴, 확인·안내 팝업, OSD, 라이브러리 리스트 탐색을 UX 사양에 맞춰 구현했습니다.</p></div>
 <div><h4>사용자 커스터마이징</h4><p>홈 위젯 편집, 메뉴 아이콘 재배치, 약관 동의와 언어(EN/KR) 선택 흐름을 구현했습니다.</p></div>
 <div><h4>개발 환경 문서화</h4><p>M2 Mac 개발 환경 구축 가이드와 임베디드 리눅스 크로스 컴파일 가이드를 작성해 함께 납품했습니다.</p></div>
+</div>
+
+## 구현 화면
+
+<p style="font-size:.9rem;color:var(--text-3)">아래 화면은 고객사 UX 디자인 시안이며, 이를 기준으로 QML 화면과 화면 전환을 구현했습니다.</p>
+
+<div class="fig-grid">
+<figure class="fig"><div class="frame dark"><img src="assets/img/infotainment/all-menus.webp" alt="All Menus 화면: Phone, Phone Projection, Voice Memo, Radio, Media, Android Auto, Apple CarPlay, Setup"></div><figcaption><b>MENUS</b><span>전체 메뉴 — 8개 기능 아이콘, 아이콘 재배치 지원</span></figcaption></figure>
+<figure class="fig"><div class="frame dark"><img src="assets/img/infotainment/fm-radio.webp" alt="FM 라디오 메인: 프리셋 목록과 주파수 101.1"></div><figcaption><b>RADIO</b><span>FM 라디오 — 프리셋 목록, 주파수 표시, 즐겨찾기, 스캔</span></figcaption></figure>
+<figure class="fig"><div class="frame dark"><img src="assets/img/infotainment/usb-music-list.webp" alt="USB Music 라이브러리 Files 탭: 폴더 목록"></div><figcaption><b>LIBRARY</b><span>USB 라이브러리 — Files · Artists · Songs · Albums · Recently Added</span></figcaption></figure>
+<figure class="fig"><div class="frame dark"><img src="assets/img/infotainment/media-gate.webp" alt="Media Gate: Bluetooth Audio, USB Music, Apple CarPlay, Android Auto 선택"></div><figcaption><b>MEDIA</b><span>미디어 소스 선택 — Bluetooth · USB · CarPlay · Android Auto</span></figcaption></figure>
 </div>
 
 ## 화면 구성
@@ -22,6 +35,8 @@
 - All Menus: Phone, Phone Projection, Voice Memo, Radio, Media, Android Auto, Apple CarPlay, Setup
 - 위젯 편집, 아이콘 재배치, 홈 아이콘 편집
 - 최초 실행 시 약관 동의와 언어 선택(English / Korean), 디스플레이 OFF 시계 화면
+
+<figure class="fig medium"><div class="frame dark"><img src="assets/img/infotainment/edit-widget.webp" alt="오른쪽 위젯 편집 화면: Radio/Media, Phone Projection, Clock 중 선택"></div><figcaption><b>WIDGET</b><span>홈 위젯 편집 — Radio/Media · Phone Projection · Clock 중 선택</span></figcaption></figure>
 
 ### Radio
 - FM/AM 메인: 주파수 표시, 프리셋 목록, 이전/다음 스테이션, 즐겨찾기

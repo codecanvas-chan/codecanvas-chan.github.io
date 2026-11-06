@@ -6,7 +6,7 @@
 
 Python 서버와 브라우저만 있으면 Windows와 Linux에서 바로 실행됩니다. 3D 버드아이뷰, 주행 전체 타임라인, 조건 검색, 그래프, 북마크, 클립, 스냅샷까지 검증 엔지니어가 매일 쓰는 기능을 하나의 화면에 모았습니다.
 
-<figure class="fig"><div class="frame dark"><img src="assets/img/recorder/playback.webp" alt="재생 화면: 인식 결과가 그려진 영상, 3D 버드아이뷰, 주행 타임라인과 그래프, 사이드 패널"></div><figcaption><b>PLAYBACK</b><span>재생 화면. 왼쪽 위는 인식 결과가 그려진 영상, 오른쪽 위는 3D 버드아이뷰, 아래는 주행 전체 타임라인과 신호 그래프, 오른쪽은 경보 상태와 차량 신호입니다. 도구 이름과 경로·파일명은 블러 처리했습니다.</span></figcaption></figure>
+<figure class="fig"><div class="frame dark"><img src="assets/covers/cover-recorder.svg" alt="레코더 화면 구성 일러스트: 인식 결과가 그려진 카메라 영상, 3D 버드아이뷰, 주행 타임라인"></div><figcaption><b>LAYOUT</b><span>화면 구성. 인식 결과를 그린 카메라 영상과 3D 버드아이뷰를 나란히 놓고, 아래에 주행 전체 타임라인과 신호 그래프를 배치했습니다. (일러스트)</span></figcaption></figure>
 
 <div class="highlights">
 <div><h4>한 파일에 모든 데이터</h4><p>보드가 H.264 프레임마다 넣는 메타데이터(SEI)에 프레임 번호, 시각, CAN 샘플, 인식 결과가 들어 있어, 녹화 파일 하나만으로 전부 재현됩니다.</p></div>
