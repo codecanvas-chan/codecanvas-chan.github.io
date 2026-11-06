@@ -1,42 +1,41 @@
-# CodeCanvas - 임베디드 시스템 전문 개발
+# 코드캔버스 CodeCanvas — 포트폴리오 사이트
 
-CodeCanvas는 임베디드 시스템, 모바일 애플리케이션, 하드웨어 제어 솔루션을 전문으로 하는 기술 개발 회사입니다.
+임베디드 시스템 · FPGA · Edge AI 개발 포트폴리오입니다.
 
-## 🌐 웹사이트
+🌐 https://codecanvas-chan.github.io/
 
-https://codecanvas-chan.github.io/
-
-## 📁 프로젝트 구조
+## 구조
 
 ```
-codecanvas-chan.github.io/
-├── index.html           # 메인 페이지
-├── css/
-│   └── style.css       # 스타일시트
+├── index.html              # 홈 (서비스 · 프로젝트 · R&D · 진행 방식 · 역량 · 연혁 · 문의)
+├── project.html            # 프로젝트 상세 템플릿 (?project=<key>)
+├── css/style.css           # 디자인 시스템
 ├── js/
-│   └── script.js       # JavaScript
-├── projects/           # 프로젝트 상세 페이지
-├── assets/             # 이미지 및 자산
-├── .nojekyll           # Jekyll 비활성화
-└── README.md           # 이 파일
+│   ├── data.js             # ★ 프로젝트 메타데이터 (제목 · 고객사 · 기간 · KPI · 커버 이미지)
+│   ├── common.js           # 내비게이션 · 스크롤 애니메이션 · 이미지 확대
+│   ├── main.js             # 홈 프로젝트 카드 · 필터 · R&D 렌더링
+│   └── project.js          # 상세 페이지 렌더링 (Markdown + 목차)
+├── projects/*.md           # 프로젝트 본문 (Markdown + figure HTML)
+└── assets/
+    ├── diagrams/*.svg      # 시스템 구성도 · 흐름도
+    ├── covers/*.svg        # 이미지가 없는 프로젝트용 카드 커버
+    ├── img/<project>/      # 스크린샷 · 사진 · 영상 (WebP / MP4)
+    └── og-image.png        # 링크 공유 썸네일 (1200×630)
 ```
 
-## 💼 주요 프로젝트
+## 프로젝트 추가 방법
 
-- 철도 차량용 영상 모듈 개발 (주식회사 앤츠)
-- 열화상 검사장비 안드로이드 앱 개발 (주식회사 인스펙코)
-- 위성간 통신용 수신기 소프트웨어 (주식회사 미래엠텍)
-- 차량용 인포테인먼트 시스템 (토스트)
-- 현미경 회전 제어 시스템 (주식회사 와이시스템)
-- 약물 자동 토출 시스템 (알파팜텍)
+1. `projects/` 에 본문 Markdown 작성 (`## 제목` 단위로 목차가 자동 생성됩니다)
+2. `js/data.js` 의 `projects` 배열에 항목 추가 — `type: 'client'` 는 프로젝트 섹션, `type: 'rnd'` 는 R&D 섹션에 표시
+3. 이미지는 `assets/img/<key>/` 에 WebP로 넣고 본문에서 아래처럼 사용
 
-## 🛠 핵심 기술
+```html
+<figure class="fig"><div class="frame pad"><img src="assets/diagrams/xxx.svg" alt="설명"></div>
+<figcaption><b>FIG 1</b><span>캡션</span></figcaption></figure>
+```
 
-- **임베디드 시스템**: FPGA, ARM SoC, Linux Yocto
-- **소프트웨어**: C/C++, C#, Python, Android
-- **프레임워크**: QT/QML, GStreamer
-- **통신**: TCP/IP, UART, LVDS, Modbus RTU
+## 로컬 미리보기
 
----
-
-© 2024 CodeCanvas. All rights reserved.
+```bash
+python3 -m http.server 8000
+```

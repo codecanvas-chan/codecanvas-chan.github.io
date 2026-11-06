@@ -3,291 +3,312 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CodeCanvas - 임베디드 시스템 전문 개발</title>
+    <title>코드캔버스 CodeCanvas — 임베디드 시스템 · FPGA · Edge AI 개발</title>
+    <meta name="description" content="코드캔버스는 FPGA, 펌웨어, 임베디드 리눅스, 모바일/GUI, Edge AI를 아우르는 임베디드 시스템 개발 전문 기업입니다. 철도·위성 통신·자동차 전장·산업 검사 장비 개발 실적.">
+    <meta name="keywords" content="임베디드 개발, 임베디드 외주, FPGA 개발, Zynq, 임베디드 리눅스, Yocto, GStreamer, Qt QML, 안드로이드 앱 개발, 열화상, ESP32, Modbus, Edge AI, NPU, ADAS">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="코드캔버스 CodeCanvas — 임베디드 시스템 · FPGA · Edge AI 개발">
+    <meta property="og:description" content="칩에서 화면까지, 실제로 동작하는 제품을 만듭니다. FPGA · 펌웨어 · 임베디드 리눅스 · 앱 · Edge AI 개발.">
+    <meta property="og:url" content="https://codecanvas-chan.github.io/">
+    <meta property="og:image" content="https://codecanvas-chan.github.io/assets/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://codecanvas-chan.github.io/">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="container">
-                <div class="logo">
-                    <h1>CodeCanvas</h1>
-                </div>
+    <header class="site-header">
+        <div class="container">
+            <a class="brand" href="#top" aria-label="코드캔버스 홈">
+                <img class="brand-mark" src="favicon.svg" alt="">
+                <span class="brand-name">CodeCanvas<small>Embedded · FPGA · Edge AI</small></span>
+            </a>
+            <button class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+            </button>
+            <nav>
                 <ul class="nav-menu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#tech-stack">Tech Stack</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#services">서비스</a></li>
+                    <li><a href="#projects">프로젝트</a></li>
+                    <li><a href="#rnd">R&amp;D</a></li>
+                    <li><a href="#process">진행 방식</a></li>
+                    <li><a href="#history">연혁</a></li>
+                    <li><a class="nav-cta" href="#contact">프로젝트 문의</a></li>
                 </ul>
-            </div>
-        </nav>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="hero">
+    <main id="top">
+        <!-- ============ HERO ============ -->
+        <section class="hero">
             <div class="container">
-                <div class="hero-content">
-                    <h1 class="hero-title">임베디드 시스템 전문 개발</h1>
-                    <p class="hero-subtitle">FPGA 설계부터 안드로이드 앱 개발, QT 기반 GUI 개발까지</p>
-                    <a href="#projects" class="btn-primary">프로젝트 보기</a>
+                <div>
+                    <span class="hero-kicker"><span class="dot"></span>임베디드 시스템 개발 파트너 · 코드캔버스</span>
+                    <h1>칩에서 화면까지,<br><span class="grad">실제로 동작하는 제품</span>을<br>만듭니다.</h1>
+                    <p class="hero-sub">FPGA 신호처리부터 펌웨어, 임베디드 리눅스, 앱, 온디바이스 AI까지 한 팀처럼 다룹니다. 철도·위성 통신·자동차 전장·산업 검사 장비 현장에서 요구사항 분석부터 납품·검수까지 책임지고 진행합니다.</p>
+                    <div class="hero-actions">
+                        <a class="btn btn-primary" href="#projects">프로젝트 사례 보기
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                        <a class="btn btn-ghost" href="#contact">개발 문의하기</a>
+                    </div>
+                    <div class="hero-stats" id="hero-stats">
+                        <div class="hero-stat"><div class="num">7<sup>년+</sup></div><div class="lbl">임베디드 SW 개발 경력</div></div>
+                        <div class="hero-stat"><div class="num">6<sup>개사</sup></div><div class="lbl">고객사 프로젝트 납품</div></div>
+                        <div class="hero-stat"><div class="num">12<sup>종</sup></div><div class="lbl">SoC · MCU 플랫폼 경험</div></div>
+                        <div class="hero-stat"><div class="num">860<sup>km</sup></div><div class="lbl">자체 Edge AI 실차 검증</div></div>
+                    </div>
+                </div>
+
+                <div class="reveal">
+                    <div class="stack" aria-label="개발 영역 스택">
+                        <div class="stack-layer">
+                            <div class="lv">L5<b>APP</b></div>
+                            <div><h4>Application · HMI</h4><div class="chips"><span>Qt/QML</span><span>Android</span><span>C# WinForms</span><span>PyQt5</span></div></div>
+                        </div>
+                        <div class="stack-layer">
+                            <div class="lv">L4<b>AI</b></div>
+                            <div><h4>Edge AI · Vision</h4><div class="chips"><span>NPU 양자화</span><span>지식증류</span><span>ONNX</span><span>OpenCV</span></div></div>
+                        </div>
+                        <div class="stack-layer">
+                            <div class="lv">L3<b>OS</b></div>
+                            <div><h4>Embedded Linux · Media</h4><div class="chips"><span>Yocto</span><span>GStreamer</span><span>BSP</span><span>V4L2</span></div></div>
+                        </div>
+                        <div class="stack-layer">
+                            <div class="lv">L2<b>FW</b></div>
+                            <div><h4>Firmware · Control</h4><div class="chips"><span>ESP32</span><span>AVR</span><span>Zynq PS</span><span>Modbus</span><span>CAN</span></div></div>
+                        </div>
+                        <div class="stack-layer">
+                            <div class="lv">L1<b>HW</b></div>
+                            <div><h4>FPGA · Signal Path</h4><div class="chips"><span>VHDL</span><span>ADC I/F</span><span>Digital Filter</span><span>LVDS/UART</span></div></div>
+                        </div>
+                    </div>
+                    <p class="stack-caption">// full-stack embedded: RTL → firmware → OS → AI → UI</p>
                 </div>
             </div>
         </section>
 
-        <!-- About Section -->
-        <section id="about" class="about">
+        <!-- ============ DOMAINS ============ -->
+        <section class="domains" aria-label="수행 분야">
             <div class="container">
-                <h2 class="section-title">회사 소개</h2>
-                <div class="about-content">
-                    <p class="about-text">
-                        CodeCanvas는 임베디드 시스템, 모바일 애플리케이션, 하드웨어 제어 솔루션을 전문으로 하는 기술 개발 회사입니다.
-                        FPGA 설계부터 안드로이드 앱 개발, QT 기반 GUI 개발까지 다양한 영역에서 프로젝트를 수행하고 있습니다.
-                    </p>
-                    <div class="stats">
-                        <div class="stat-item">
-                            <div class="stat-number">6+</div>
-                            <div class="stat-label">완료 프로젝트</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">5+</div>
-                            <div class="stat-label">주요 클라이언트</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">4+</div>
-                            <div class="stat-label">기술 분야</div>
-                        </div>
-                    </div>
+                <span class="label">Industries</span>
+                <ul>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="13" rx="3"/><path d="M5 10h14M9 20l-2 2M15 20l2 2M8.5 13h.01M15.5 13h.01"/></svg>철도 차량</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m13 7 4-4 4 4-4 4zM3 17l4-4 4 4-4 4zM9 9l6 6M14 4l-2-2M20 10l2 2"/></svg>위성 통신</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M3 13l2-6h14l2 6v4H3z"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/></svg>자동차 전장 · ADAS</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/><path d="M12 8.5V5M17 9h1"/></svg>산업 검사 장비</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3h4v5l4 10a2 2 0 0 1-2 3H8a2 2 0 0 1-2-3l4-10z"/><path d="M8 14h8"/></svg>약국 · 음료 자동화</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18h8M3 22h18M14 22a7 7 0 1 0 0-14h-1M9 14h2M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2zM12 6V3h-2v3"/></svg>연구 · 광학 장비</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ============ SERVICES ============ -->
+        <section class="section" id="services">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="eyebrow">Services</span>
+                    <h2 class="section-title">하드웨어와 소프트웨어의 경계에서<br>필요한 모든 계층을 개발합니다</h2>
+                    <p class="section-lead">한 프로젝트 안에서 FPGA 로직, 보드 펌웨어, PC/모바일 툴을 함께 맡을 수 있어 인터페이스 조율 비용이 줄고, 문제가 생겨도 계층을 가로질러 원인을 찾습니다.</p>
+                </div>
+                <div class="services-grid">
+                    <article class="service reveal">
+                        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/><path d="M10 10h4v4h-4z"/></svg></div>
+                        <h3>FPGA · 디지털 신호처리</h3>
+                        <p>VHDL 기반 ADC 인터페이스, 디지털 필터, 고속 직렬 통신을 설계하고 Zynq PS–PL 연동과 PC 모니터링 툴까지 구현합니다.</p>
+                        <div class="chips"><span class="chip">VHDL</span><span class="chip">Vivado/Vitis</span><span class="chip">Zynq-7000</span><span class="chip">AD7606C</span></div>
+                    </article>
+                    <article class="service reveal">
+                        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="m10 9 5 2.5-5 2.5z"/><path d="M8 22h8M12 18v4"/></svg></div>
+                        <h3>임베디드 리눅스 · 멀티미디어</h3>
+                        <p>Yocto 기반 SoC에서 GStreamer HW 코덱 파이프라인과 Qt 애플리케이션으로 다채널 영상 재생·스트리밍 시스템을 구축합니다.</p>
+                        <div class="chips"><span class="chip">Yocto</span><span class="chip">GStreamer</span><span class="chip">i.MX8</span><span class="chip">Qt 5.15</span></div>
+                    </article>
+                    <article class="service reveal">
+                        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.9 4.9 7 7M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1 7 17M17 7l2.1-2.1"/></svg></div>
+                        <h3>펌웨어 · 장비 제어</h3>
+                        <p>ESP32·AVR 펌웨어로 스테핑 모터, 펌프, 밸브를 정밀 제어하고 Modbus RTU/TCP, 워치독, 비상정지 등 산업 장비 수준의 안전 로직을 넣습니다.</p>
+                        <div class="chips"><span class="chip">ESP32</span><span class="chip">ATmega2560</span><span class="chip">Modbus</span><span class="chip">Stepper</span></div>
+                    </article>
+                    <article class="service reveal">
+                        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/><rect x="2" y="7" width="3" height="10" rx="1"/><rect x="19" y="7" width="3" height="10" rx="1"/></svg></div>
+                        <h3>모바일 · HMI · 장비용 툴</h3>
+                        <p>열화상 장비 Android 앱, 차량용 Qt/QML HMI, C#·PyQt 기반 장비 설정/모니터링 프로그램을 현장 사용성에 맞춰 개발합니다.</p>
+                        <div class="chips"><span class="chip">Android</span><span class="chip">Qt/QML</span><span class="chip">C#</span><span class="chip">PyQt5</span></div>
+                    </article>
+                    <article class="service reveal">
+                        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="19" cy="18" r="2"/><path d="m7 7 3.5 3.5M7 17l3.5-3.5M14 10.5 17 7M14 13.5 17 17"/></svg></div>
+                        <h3>Edge AI · ADAS</h3>
+                        <p>주행 모델을 NPU에 맞게 지식증류·양자화해 포팅하고, 카메라부터 CAN 차량 제어까지 실차에서 동작하는 온디바이스 AI 시스템을 만듭니다.</p>
+                        <div class="chips"><span class="chip">AX630C</span><span class="chip">K230</span><span class="chip">RK3588</span><span class="chip">PyTorch</span></div>
+                    </article>
+                    <article class="service reveal">
+                        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h11M4 7l3-3M4 7l3 3M20 17H9M20 17l-3-3M20 17l-3 3"/></svg></div>
+                        <h3>통신 · 프로토콜 설계</h3>
+                        <p>Modbus, CAN, UART/LVDS, TCP/IP 기반 장비 간 프로토콜을 정의하고 레지스터 맵·프레임 구조·체크섬을 문서화해 고객사 시스템과 연동합니다.</p>
+                        <div class="chips"><span class="chip">Modbus RTU/TCP</span><span class="chip">CAN</span><span class="chip">LVDS</span><span class="chip">TCP/IP</span></div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="projects">
+        <!-- ============ PROJECTS ============ -->
+        <section class="section section-soft" id="projects">
             <div class="container">
-                <h2 class="section-title">프로젝트</h2>
-                <div class="project-grid">
+                <div class="section-head reveal">
+                    <span class="eyebrow">Client Projects</span>
+                    <h2 class="section-title">현장에 납품된 프로젝트</h2>
+                    <p class="section-lead">고객사 요구사양을 받아 설계부터 납품·검수까지 수행한 프로젝트입니다. 각 카드에서 시스템 구성도, 핵심 기술, 성과를 확인하실 수 있습니다.</p>
+                </div>
+                <div class="filters" id="project-filters" role="tablist" aria-label="분야별 필터"></div>
+                <div class="project-grid" id="project-grid"></div>
+            </div>
+        </section>
 
-                    <!-- Project 1: CTM -->
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3>철도 차량용 영상 모듈 개발</h3>
-                            <span class="project-badge">철도 시스템</span>
-                        </div>
-                        <div class="project-body">
-                            <p class="project-desc">철도 차량용 영상 재생 및 관리 시스템 개발</p>
-                            <div class="project-meta">
-                                <span class="client">주식회사 앤츠</span>
-                                <span class="duration">약 3개월</span>
-                            </div>
-                            <div class="tech-tags">
-                                <span class="tech-tag">i.MX8 QuadMax</span>
-                                <span class="tech-tag">Linux Yocto</span>
-                                <span class="tech-tag">GStreamer</span>
-                                <span class="tech-tag">QT</span>
-                            </div>
-                        </div>
-                        <div class="project-footer">
-                            <a href="project.html?project=ctm" class="btn-secondary">자세히 보기</a>
-                        </div>
-                    </div>
+        <!-- ============ R&D ============ -->
+        <section class="section section-dark" id="rnd">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="eyebrow">In-house R&amp;D</span>
+                    <h2 class="section-title">자체 기술 개발 — 온디바이스 AI 주행 보조</h2>
+                    <p class="section-lead">외주 프로젝트와 별도로 Edge AI · ADAS 분야를 직접 연구합니다. 저전력 NPU 보드에 주행 모델을 올리고 실제 차량에서 검증하는 전 과정을 수행합니다.</p>
+                </div>
+                <div class="rnd-feature reveal" id="rnd-feature"></div>
+                <div class="rnd-grid" id="rnd-grid"></div>
+            </div>
+        </section>
 
-                    <!-- Project 2: Inspeco -->
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3>열화상 검사장비 안드로이드 앱 개발</h3>
-                            <span class="project-badge">산업용 검사장비</span>
-                        </div>
-                        <div class="project-body">
-                            <p class="project-desc">산업용 열화상 검사 장비 X1의 안드로이드 앱 고도화</p>
-                            <div class="project-meta">
-                                <span class="client">주식회사 인스펙코</span>
-                                <span class="duration">3개월</span>
-                            </div>
-                            <div class="tech-tags">
-                                <span class="tech-tag">Android</span>
-                                <span class="tech-tag">열화상 카메라</span>
-                                <span class="tech-tag">성능 최적화</span>
-                            </div>
-                        </div>
-                        <div class="project-footer">
-                            <a href="project.html?project=inspeco" class="btn-secondary">자세히 보기</a>
-                        </div>
-                    </div>
+        <!-- ============ PROCESS ============ -->
+        <section class="section" id="process">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="eyebrow">How we work</span>
+                    <h2 class="section-title">투명하게 진행하고, 문서로 남깁니다</h2>
+                    <p class="section-lead">주 단위 진행 보고와 중간 빌드 배포로 진행 상황을 언제든 확인하실 수 있고, 납품 시 소스·바이너리·개발 문서를 함께 전달합니다.</p>
+                </div>
+                <ol class="process reveal">
+                    <li>
+                        <h4>요구사항 분석</h4>
+                        <p>요구사양서와 하드웨어·인터페이스 조건을 검토하고 불명확한 부분을 질의로 정리합니다.</p>
+                        <div class="out"><span class="chip">요구사항 정의</span></div>
+                    </li>
+                    <li>
+                        <h4>설계 · 일정 산정</h4>
+                        <p>시스템 구조와 통신 프로토콜을 설계하고 마일스톤별 공수를 산정합니다.</p>
+                        <div class="out"><span class="chip">설계서</span><span class="chip">마일스톤</span></div>
+                    </li>
+                    <li>
+                        <h4>개발 · 주간 보고</h4>
+                        <p>주 1회 진행 보고와 중간 빌드를 공유하고 Git으로 변경 이력을 관리합니다.</p>
+                        <div class="out"><span class="chip">주간 보고</span><span class="chip">중간 빌드</span></div>
+                    </li>
+                    <li>
+                        <h4>검증 · 납품</h4>
+                        <p>실장비에서 시험하고, 필요 시 MISRA 정적 분석과 Doxygen 문서화를 수행합니다.</p>
+                        <div class="out"><span class="chip">소스</span><span class="chip">바이너리</span><span class="chip">문서</span></div>
+                    </li>
+                    <li>
+                        <h4>검수 · 후속 지원</h4>
+                        <p>검수 기간 이슈에 대응하고, 기능 개선은 후속 단계로 이어서 진행합니다.</p>
+                        <div class="out"><span class="chip">패치 릴리스</span></div>
+                    </li>
+                </ol>
+            </div>
+        </section>
 
-                    <!-- Project 3: Satellite -->
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3>위성간 통신용 수신기 소프트웨어</h3>
-                            <span class="project-badge">위성 통신</span>
-                        </div>
-                        <div class="project-body">
-                            <p class="project-desc">인공위성 간 레이저 통신 시스템을 위한 FPGA 기반 신호 처리</p>
-                            <div class="project-meta">
-                                <span class="client">주식회사 미래엠텍</span>
-                                <span class="duration">약 4개월</span>
-                            </div>
-                            <div class="tech-tags">
-                                <span class="tech-tag">FPGA</span>
-                                <span class="tech-tag">Xilinx Zynq</span>
-                                <span class="tech-tag">LVDS</span>
-                                <span class="tech-tag">C#</span>
-                            </div>
-                        </div>
-                        <div class="project-footer">
-                            <a href="project.html?project=satellite" class="btn-secondary">자세히 보기</a>
-                        </div>
-                    </div>
-
-                    <!-- Project 4: Toast -->
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3>차량용 인포테인먼트 시스템</h3>
-                            <span class="project-badge">자동차 전장</span>
-                        </div>
-                        <div class="project-body">
-                            <p class="project-desc">차량용 인포테인먼트 시스템 GUI 개발</p>
-                            <div class="project-meta">
-                                <span class="client">토스트</span>
-                                <span class="duration">약 2주</span>
-                            </div>
-                            <div class="tech-tags">
-                                <span class="tech-tag">QT/QML</span>
-                                <span class="tech-tag">임베디드 리눅스</span>
-                            </div>
-                        </div>
-                        <div class="project-footer">
-                            <a href="project.html?project=toast" class="btn-secondary">자세히 보기</a>
-                        </div>
-                    </div>
-
-                    <!-- Project 5: Microscope -->
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3>현미경 회전 제어 시스템</h3>
-                            <span class="project-badge">연구 장비</span>
-                        </div>
-                        <div class="project-body">
-                            <p class="project-desc">네트워크 기반 현미경 자동 회전 제어 시스템</p>
-                            <div class="project-meta">
-                                <span class="client">주식회사 와이시스템</span>
-                                <span class="duration">6개월</span>
-                            </div>
-                            <div class="tech-tags">
-                                <span class="tech-tag">ESP32</span>
-                                <span class="tech-tag">TCP/IP</span>
-                                <span class="tech-tag">스테핑 모터</span>
-                                <span class="tech-tag">C#</span>
-                            </div>
-                        </div>
-                        <div class="project-footer">
-                            <a href="project.html?project=microscope" class="btn-secondary">자세히 보기</a>
-                        </div>
-                    </div>
-
-                    <!-- Project 6: AlphaFarmTech -->
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3>약물 자동 토출 시스템</h3>
-                            <span class="project-badge">약국 자동화</span>
-                        </div>
-                        <div class="project-body">
-                            <p class="project-desc">약국용 시럽 자동 토출 시스템 개발</p>
-                            <div class="project-meta">
-                                <span class="client">알파팜텍</span>
-                                <span class="duration">약 20개월</span>
-                            </div>
-                            <div class="tech-tags">
-                                <span class="tech-tag">Arduino</span>
-                                <span class="tech-tag">Modbus RTU</span>
-                                <span class="tech-tag">Python</span>
-                            </div>
-                        </div>
-                        <div class="project-footer">
-                            <a href="project.html?project=alphafarmtech" class="btn-secondary">자세히 보기</a>
-                        </div>
-                    </div>
-
+        <!-- ============ CAPABILITIES ============ -->
+        <section class="section section-soft" id="capabilities">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="eyebrow">Capabilities</span>
+                    <h2 class="section-title">기술 역량</h2>
+                </div>
+                <div class="caps reveal" id="caps">
+                    <div class="cap"><h4><span>01</span>FPGA · HDL</h4><div class="chips"><span class="chip">Verilog</span><span class="chip">VHDL</span><span class="chip">Vivado / Vitis</span><span class="chip">Zynq PS–PL · AXI</span><span class="chip">고정소수점 DSP</span><span class="chip">ADC 인터페이스</span></div></div>
+                    <div class="cap"><h4><span>02</span>임베디드 리눅스 · 멀티미디어</h4><div class="chips"><span class="chip">Yocto</span><span class="chip">Buildroot</span><span class="chip">Device Tree</span><span class="chip">Kernel Module</span><span class="chip">GStreamer</span><span class="chip">systemd</span></div></div>
+                    <div class="cap"><h4><span>03</span>펌웨어 · 장비 제어</h4><div class="chips"><span class="chip">ESP32 / S3 / C3</span><span class="chip">ATmega2560</span><span class="chip">FreeRTOS</span><span class="chip">PlatformIO</span><span class="chip">스테핑 · 서보 · DC 모터</span><span class="chip">엔코더 (PCNT)</span></div></div>
+                    <div class="cap"><h4><span>04</span>애플리케이션 · HMI</h4><div class="chips"><span class="chip">Qt5 · QML</span><span class="chip">Android (Kotlin / Java)</span><span class="chip">C# WinForms</span><span class="chip">PyQt5</span><span class="chip">C++17</span></div></div>
+                    <div class="cap"><h4><span>05</span>Edge AI · 비전</h4><div class="chips"><span class="chip">PyTorch</span><span class="chip">ONNX</span><span class="chip">NPU 양자화 (Pulsar2 · RKNN · nncase)</span><span class="chip">ncnn</span><span class="chip">지식증류</span><span class="chip">OpenCV</span></div></div>
+                    <div class="cap"><h4><span>06</span>통신 · 품질</h4><div class="chips"><span class="chip">Modbus RTU / TCP</span><span class="chip">CAN</span><span class="chip">MQTT</span><span class="chip">LVDS · UART</span><span class="chip">MISRA C/C++</span><span class="chip">정적 분석 · Doxygen</span></div></div>
+                </div>
+                <div class="platforms reveal">
+                    <span class="label">Platforms shipped on</span>
+                    <ul id="platforms"><li>NXP i.MX8 QuadMax</li><li>Xilinx Zynq-7020</li><li>Axera AX630C</li><li>Kendryte K230 (RISC-V)</li><li>Rockchip RK3588</li><li>Raspberry Pi 3 / 4</li><li>ESP32 · S3 · C3</li><li>ESP8266</li><li>ATmega2560</li><li>STM32 (CAN I/F)</li><li>Android 태블릿</li></ul>
                 </div>
             </div>
         </section>
 
-        <!-- Tech Stack Section -->
-        <section id="tech-stack" class="tech-stack">
+        <!-- ============ HISTORY ============ -->
+        <section class="section" id="history">
             <div class="container">
-                <h2 class="section-title">핵심 역량</h2>
-                <div class="tech-categories">
-
-                    <div class="tech-category">
-                        <h3>임베디드 시스템</h3>
-                        <ul>
-                            <li>FPGA 설계 및 구현 (Xilinx Zynq)</li>
-                            <li>ARM 기반 SoC 개발 (i.MX8, ESP32)</li>
-                            <li>리눅스 커널 및 Yocto 빌드 시스템</li>
-                            <li>실시간 신호 처리</li>
-                        </ul>
-                    </div>
-
-                    <div class="tech-category">
-                        <h3>소프트웨어 개발</h3>
-                        <ul>
-                            <li><strong>언어:</strong> C/C++, C#, Verilog/VHDL</li>
-                            <li><strong>프레임워크:</strong> QT/QML, GStreamer</li>
-                            <li><strong>모바일:</strong> Android Native/Java</li>
-                            <li><strong>통신:</strong> TCP/IP, UART, LVDS, FTP, RTSP</li>
-                        </ul>
-                    </div>
-
-                    <div class="tech-category">
-                        <h3>품질 관리</h3>
-                        <ul>
-                            <li>MISRA-C 코딩 표준</li>
-                            <li>정적 분석</li>
-                            <li>Doxygen 문서화</li>
-                            <li>Git 버전 관리</li>
-                        </ul>
-                    </div>
-
+                <div class="section-head reveal">
+                    <span class="eyebrow">History</span>
+                    <h2 class="section-title">연혁</h2>
+                </div>
+                <div class="timeline reveal" id="timeline">
+                    <div class="tl-year"><span class="yr">2026</span><ul><li><b>edgepilot</b> — AX630C NPU 기반 차선 유지 보조, 실차 약 860 km 검증 <span class="chip chip-accent">R&D</span></li><li>주행 모델 양자화·지식증류 연구, 4개 엣지 플랫폼 포팅 (K230 · RK3588 · RPi 4 · AX630C) <span class="chip chip-accent">R&D</span></li></ul></div>
+<div class="tl-year"><span class="yr">2025</span><ul><li><b>인스펙코</b> X1 3차 계약 — 640×512 열화상 모듈 포팅, 실시간 화면 2 → 23 FPS</li><li><b>알파팜텍</b> 토출기 v1.4 RS485 Modbus RTU 적용 · AI 음료 추천 디스펜서</li></ul></div>
+<div class="tl-year"><span class="yr">2024</span><ul><li><b>앤츠</b> 철도 차량 CTM 영상 모듈 v1.0 납품 (i.MX8 · GStreamer · Qt)</li><li><b>인스펙코</b> X1 1·2차 계약, 초음파 센서 PC 툴</li><li>EDOF 3D 현미경 통합 제어 시스템 (FASTECH 3축 서보 · MQTT)</li><li><b>알파팜텍</b> 시럽 토출기 제품화 — 산업용 보드, 한글 OLED, 스테핑 펌프</li></ul></div>
+<div class="tl-year"><span class="yr">2023</span><ul><li><b>미래엠텍</b> 위성간 레이저 통신 수신기 FPGA 납품 (Zynq-7020)</li><li>차량용 인포테인먼트 HMI 58개 화면 구현 (Qt/QML)</li><li><b>인스펙코</b> P1 초음파 진단 장비 Android 앱</li><li><b>알파팜텍</b> 시럽 자동 토출기 시제품 개발</li></ul></div>
+<div class="tl-year"><span class="yr">2019</span><ul><li>컴퓨터공학 학사 졸업 · 우수졸업생 중소벤처기업부장관상</li></ul></div>
+<div class="tl-year"><span class="yr">2017–18</span><ul><li>IoT 기반 OBD-II 연비 운전 보조 시스템 — 한이음 ICT 공모전 입선 <span class="chip chip-accent">Origin</span></li><li>교내 SW 경진대회 금상 (2017)</li></ul></div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="contact">
+        <!-- ============ CONTACT ============ -->
+        <section class="section contact" id="contact">
             <div class="container">
-                <h2 class="section-title">문의하기</h2>
-                <div class="contact-content">
-                    <p class="contact-text">
-                        프로젝트 문의나 협업 제안이 있으시다면 언제든지 연락주세요.
-                    </p>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <strong>Email:</strong> qkrcks1220@naver.com
-                        </div>
+                <div class="reveal">
+                    <span class="eyebrow">Contact</span>
+                    <h2>구상 중인 장비나 시스템이 있으신가요?</h2>
+                    <p class="lead">하드웨어 사양이 확정되지 않은 단계라도 괜찮습니다. 구현 가능성 검토와 구조 제안부터 함께 시작할 수 있습니다.</p>
+                    <div class="actions">
+                        <a class="btn btn-primary" href="mailto:qkrcks1220@naver.com?subject=%5B%EC%BD%94%EB%93%9C%EC%BA%94%EB%B2%84%EC%8A%A4%5D%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EB%AC%B8%EC%9D%98">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+                            이메일로 문의하기</a>
+                        <a class="btn btn-ghost" href="#projects">프로젝트 다시 보기</a>
                     </div>
+                    <p class="contact-email">mail · <a href="mailto:qkrcks1220@naver.com">qkrcks1220@naver.com</a></p>
+                </div>
+                <div class="brief reveal">
+                    <h4>문의 시 함께 알려주시면 빠르게 검토할 수 있습니다</h4>
+                    <ol>
+                        <li><span><b>대상 하드웨어</b> — SoC/MCU, 보드, 센서·카메라 등</span></li>
+                        <li><span><b>핵심 기능과 인터페이스</b> — 통신 방식, 연동 장비, 화면 구성</span></li>
+                        <li><span><b>일정</b> — 희망 착수일, 중간·최종 마일스톤</span></li>
+                        <li><span><b>납품 형태</b> — 소스 코드, 바이너리, 문서, 정적 분석 등</span></li>
+                    </ol>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
+    <footer class="site-footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="company-info">
-                    <h3>코드캔버스</h3>
-                    <p><strong>대표자:</strong> 박찬</p>
-                    <p><strong>사업자번호:</strong> 821-12-02655</p>
-                    <p><strong>이메일:</strong> qkrcks1220@naver.com</p>
-                    <p><strong>주소:</strong> 서울특별시 송파구 백제고분로 17-14</p>
-                </div>
-                <div class="footer-bottom">
-                    <p>&copy; 2024 코드캔버스. All rights reserved.</p>
-                </div>
+            <div>
+                <a class="brand" href="#top">
+                    <img class="brand-mark" src="favicon.svg" alt="">
+                    <span class="brand-name">코드캔버스<small>CodeCanvas</small></span>
+                </a>
+                <dl>
+                    <div><dt>대표</dt><dd>박찬</dd></div>
+                    <div><dt>사업자등록번호</dt><dd>821-12-02655</dd></div>
+                    <div><dt>이메일</dt><dd>qkrcks1220@naver.com</dd></div>
+                    <div><dt>주소</dt><dd>서울특별시 송파구 백제고분로 17-14</dd></div>
+                </dl>
             </div>
+            <p class="copy">&copy; <span data-year>2026</span> CodeCanvas. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
