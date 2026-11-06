@@ -202,8 +202,8 @@ window.CC = {
         },
         {
             key: 'report-server', type: 'rnd', md: 'projects/rnd-report-server.md',
-            title: '임베디드 비전 SW 릴리스 리포트 자동화 서버',
-            cardTitle: '릴리스 리포트 자동화 서버 (MCP 연동)',
+            title: '빌드·실보드 측정 자동화 플랫폼',
+            cardTitle: '빌드·실보드 측정 자동화 플랫폼 (MCP 연동)',
             domain: 'DevOps · Automation', client: '엔지니어링 도구',
             period: '2026', role: '설계 · 개발', platform: 'Linux 서버 · 다중 SoC 보드',
             summary: '빌드부터 실보드 성능 측정, 리포트 작성, 위키 Publish까지의 릴리스 검증을 하나의 서버로 자동화하고, 웹 UI·REST API·MCP·CLI로 같은 기능을 제공하는 시스템입니다.',

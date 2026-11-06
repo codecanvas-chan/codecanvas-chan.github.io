@@ -1,10 +1,12 @@
-# 임베디드 비전 SW 릴리스 리포트 자동화 서버
+# 빌드·실보드 측정 자동화 플랫폼
 
 ## 개요
 
 임베디드 비전 소프트웨어를 릴리스하려면 매번 **소스 빌드 → 실보드 실행 → 성능 측정 → 리포트 작성 → 위키 Publish**를 반복해야 합니다. 기존에는 보드와 고객 프로젝트마다 따로 만든 CI 잡(Jenkins)이 이 일을 나눠 맡고 있었습니다. 이 서버는 그 잡들을 **하나의 서비스로 통합**한 것으로, 웹 UI, REST API, AI 에이전트용 MCP 서버, CLI에서 같은 기능을 제공합니다.
 
 새 프로젝트를 추가하는 일은 YAML 파일 하나를 쓰는 것으로 줄었고, 대시보드에서 보드 상태, 최근 성능, 실행 기록을 한눈에 볼 수 있습니다. 두 실행 결과를 바로 비교하고, 측정값이 이상하면 자동으로 경고합니다.
+
+<figure class="fig"><div class="frame dark"><img src="assets/img/report-server/dashboard.webp" alt="대시보드: 보드 4대의 상태 카드, 프로젝트별 FPS·지연·kDMIPS와 직전 실행 대비 변화, 예약 실행 목록"></div><figcaption><b>DASHBOARD</b><span>대시보드. 보드별 상태(실행 중·대기), 프로젝트별 최근 FPS·지연·kDMIPS와 직전 실행 대비 변화(개선 초록 / 악화 빨강), 예약 실행을 한 화면에서 봅니다. 실제 코드로 띄운 화면이며, 프로젝트·보드 이름과 수치는 가상 데이터입니다.</span></figcaption></figure>
 
 <div class="highlights">
 <div><h4>CI 잡 → 단일 서비스</h4><p>보드·프로젝트별로 흩어져 있던 릴리스 리포트, 보드 프로파일링, 고객 패키지 잡을 하나의 서버와 설정 체계로 대체했습니다.</p></div>
@@ -15,7 +17,7 @@
 
 ## 시스템 구조
 
-<figure class="fig"><div class="frame pad"><img src="assets/diagrams/report-server-architecture.svg" alt="릴리스 리포트 자동화 서버 구조: 인터페이스, 서비스 계층, 설정·Queue·Worker, 실행 파이프라인"></div><figcaption><b>FIG 1</b><span>서버 구조. 네 가지 인터페이스가 공통 서비스 계층을 거쳐 실행 요청을 Queue에 넣고, Worker가 보드와 장비를 확보한 뒤 7단계 파이프라인을 실행합니다.</span></figcaption></figure>
+<figure class="fig"><div class="frame pad"><img src="assets/diagrams/report-server-architecture.svg" alt="빌드·실보드 측정 자동화 플랫폼 구조: 인터페이스, 서비스 계층, 설정·Queue·Worker, 실행 파이프라인"></div><figcaption><b>FIG 1</b><span>서버 구조. 네 가지 인터페이스가 공통 서비스 계층을 거쳐 실행 요청을 Queue에 넣고, Worker가 보드와 장비를 확보한 뒤 7단계 파이프라인을 실행합니다.</span></figcaption></figure>
 
 ### 설정 4계층
 - 실행 설정은 **플랫폼(보드 종류) → 보드(개별 장비) → 프로젝트 → 실행별 Override** 네 층을 합쳐 만듭니다. 보드는 여러 프로젝트가 함께 쓰므로, 프로젝트에는 보드를 적지 않고 실행할 때마다 고릅니다.
