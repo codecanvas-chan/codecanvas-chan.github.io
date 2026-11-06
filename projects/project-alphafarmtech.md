@@ -1,10 +1,10 @@
-# 약국용 5채널 시럽 자동 토출기 펌웨어 · 제어 소프트웨어
+# 약국용 시럽 자동 조제기 '팜시럽 ULTRA' 펌웨어 · 제어 소프트웨어
 
 ## 프로젝트 개요
 
-약국에서 물약(시럽)을 조제할 때는 처방량만큼 계량해 따르는 반복 작업이 많습니다. 알파팜텍과 함께 이 과정을 자동화하는 **5채널 시럽 자동 토출기**의 펌웨어와 PC 제어 소프트웨어를 개발했습니다. 2023년 솔레노이드 밸브 시제품에서 시작해 산업용 컨트롤러 기반 제품(PharmSyrupUltra)으로 발전시켰고, **v1.0부터 v1.4.1까지 13회 릴리스**하며 2년 넘게 기능을 확장했습니다.
+약국에서 물약(시럽)을 조제할 때는 처방량만큼 계량해 따르는 반복 작업이 많습니다. 알파팜텍의 약국용 시럽 자동 조제기 **팜시럽 ULTRA**가 이 과정을 자동화하는 제품이고, 저는 이 제품의 **펌웨어와 PC 제어 소프트웨어**를 개발했습니다. 2023년 솔레노이드 밸브 시제품에서 시작해 산업용 컨트롤러 기반 양산 제품으로 발전시켰고, **v1.0부터 v1.4.1까지 13회 릴리스**하며 2년 넘게 기능을 확장했습니다. 현재 5구·3구 모델이 실제 약국 조제실에 설치되어 쓰이고 있습니다.
 
-<figure class="fig"><div class="frame dark"><img src="assets/img/alphafarmtech/dispensing-oled.webp" alt="토출 중인 시제품: 컨트롤러 보드, OLED에 '홍길동 150mL' 표시, 계량컵에 시럽 토출"></div><figcaption><b>v1.4</b><span>토출 시연 장면입니다. 각 토출구 옆 OLED에 환자명과 토출량을 한글로 표시하고, 스테핑 펌프가 설정량만큼 정량 토출합니다. 표시된 이름은 테스트용 데이터입니다.</span></figcaption></figure>
+<figure class="fig medium"><div class="frame"><img src="assets/img/alphafarmtech/ultra-product.webp" alt="팜시럽 ULTRA 5구 제품 정면 사진: 상단 디스플레이 5개, 토출구별 버튼, 하단 시럽 원액 용기 5개"></div><figcaption><b>PRODUCT</b><span>팜시럽 ULTRA 5구. 상단 디스플레이에 토출구별 환자명과 용량을 한글로 표시하고, 버튼 3개(추출·수동·비상정지)와 스테핑 펌프로 설정량을 정량 토출합니다. (이미지: 알파팜텍)</span></figcaption></figure>
 
 <div class="highlights">
 <div><h4>5채널 독립 정량 토출</h4><p>토출구마다 독립 상태 머신을 두고, TB6600 드라이버와 스테핑 펌프로 78 pulse/mL 정량 제어와 가중치(용량 배율) 보정을 합니다.</p></div>
@@ -12,6 +12,25 @@
 <div><h4>한글 OLED 렌더링 엔진</h4><p>UTF-8 문자열을 초성·중성·종성으로 분해해 조합형 비트맵 폰트(360 글리프)로 그리는 엔진을 직접 구현했습니다. 5개 OLED는 I²C 멀티플렉서로 묶었습니다.</p></div>
 <div><h4>약국 현장 안전 설계</h4><p>토출구별 비상정지, 누르는 동안만 동작하는 수동 추출, 8초 워치독, 미사용 시 모터 Enable 차단을 넣었습니다.</p></div>
 </div>
+
+## 제품 사양 · 현장 설치
+
+<div class="fig-grid">
+<figure class="fig"><div class="frame"><img src="assets/img/alphafarmtech/ultra-spec.webp" alt="팜시럽 ULTRA 5구·3구 상세 사양표"></div><figcaption><b>SPEC</b><span>5구·3구 모델 상세 사양 (이미지: 알파팜텍)</span></figcaption></figure>
+<figure class="fig"><div class="frame"><img src="assets/img/alphafarmtech/ultra-installs.webp" alt="약국 조제실에 설치된 팜시럽 ULTRA 사진 모음"></div><figcaption><b>FIELD</b><span>약국 조제실 실제 설치 사례 (이미지: 알파팜텍)</span></figcaption></figure>
+</div>
+
+| 항목 | 팜시럽 ULTRA 5구 | 팜시럽 ULTRA 3구 |
+|------|------|------|
+| 크기 | 41 × 42 × 36 cm | 26 × 42 × 36 cm |
+| 사용 시럽 | 5종 | 3종 |
+| 최대 분주 속도 | 12 mL/초 | 12 mL/초 |
+| 토출 정확도 | ±3 mL | ±3 mL |
+| 보관 원액 용량 | 2.2 L (500 mL 시럽병 4병 이상) | 2.2 L |
+| 투약병 | 20 – 200 mL | 20 – 200 mL |
+| 전원 · 입력 | DC 24 V 5 A · 노트북/PC 연동 | DC 24 V 5 A · 노트북/PC 연동 |
+
+<p style="font-size:.85rem;color:var(--text-3)">사양 출처: 알파팜텍 제품 자료</p>
 
 ## 시스템 구성
 
@@ -47,10 +66,7 @@
 
 ## 한글 표시 엔진
 
-<div class="fig-grid">
-<figure class="fig"><div class="frame dark"><img src="assets/img/alphafarmtech/five-oled-bench.webp" alt="5개 OLED에 한글 정보가 표시된 벤치 테스트"></div><figcaption><b>v1.0</b><span>5채널 OLED 한글 표시 벤치 테스트</span></figcaption></figure>
-<figure class="fig"><div class="frame"><img src="assets/img/alphafarmtech/pc-test-app.webp" alt="PC 테스트 앱: 토출구 선택, 키패드, 사용자 이름, 약물명, 가중치 입력"></div><figcaption><b>PC APP</b><span>PyQt5 테스트 앱. 토출구 선택, 용량 키패드, 환자명·약물명·가중치 입력</span></figcaption></figure>
-</div>
+<figure class="fig" style="max-width:380px;margin-left:auto!important;margin-right:auto!important"><div class="frame"><img src="assets/img/alphafarmtech/pc-test-app.webp" alt="PC 테스트 앱: 토출구 선택, 키패드, 사용자 이름, 약물명, 가중치 입력"></div><figcaption><b>PC APP</b><span>PyQt5 테스트 앱. 토출구를 고르고 용량, 환자명, 약물명, 가중치를 입력하면 해당 토출구 디스플레이에 한글로 표시됩니다.</span></figcaption></figure>
 
 8-bit MCU에 완성형 한글 폰트 전체(11,172자)를 넣을 수는 없습니다. 그래서 PC에서 받은 UTF-8 문자열을 유니코드 산술로 **초성·중성·종성으로 분해**한 뒤, 자모 글리프를 겹쳐 그리는 **조합형 비트맵 폰트**로 렌더링했습니다. 360개 글리프만으로 모든 한글을 표시하고, 토출량은 32×32로 확대해 멀리서도 잘 보이도록 했습니다.
 
